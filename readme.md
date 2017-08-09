@@ -13,7 +13,7 @@ And now you can choose your favourite editor/IDE and edit header, source and tes
 
 CMen will be also base for upcoming lightweight C/C++ IDE for embedded devices (around 2070 - stay calm!).
 
-##CMen features (in future) (maybe) (that depends on money I'll earn)
+## CMen features (in future) (maybe) (that depends on money I'll earn)
 * Lightweight
 * Can be used as a base for custom IDE
 * Easy console commands
