@@ -8,9 +8,10 @@ namespace CMen.ProjectManager
 {
     public static class CatchFrameworkDownlader
     {
-        const string FrameworkSource = "https://api.github.com/repos/philsquared/Catch/releases/latest";
-
-        public static async Task<string> GetLatestVersionInfo()
+        const string FrameworkInfo = "https://api.github.com/repos/philsquared/Catch/releases/latest";
+        const string FrameworkLocation = "https://github.com/philsquared/Catch/releases/download/";
+        const string FrameworkFileName = "catch.hpp";
+        public static async Task<string> GetLatestVersionInfo(bool onlyNumbers)
         {
             var client = new HttpClient();
 
@@ -19,13 +20,25 @@ namespace CMen.ProjectManager
                 new MediaTypeWithQualityHeaderValue("application/vnd.github.v3+json"));
             client.DefaultRequestHeaders.Add("User-Agent", "Repository Checker");
             
-            var header = await client.GetStringAsync(FrameworkSource);
+            var header = await client.GetStringAsync(FrameworkInfo);
             
             JObject data = JObject.Parse(header);
             
             var version = data["tag_name"].ToString();
 
-            return version.Replace("v", "");
+            return onlyNumbers ? version.Replace("v", "") : version;
+        }
+
+        public static async Task<CatchFramework> GetLatestFramework()
+        {
+            //CatchFramework testingFramework = new 
+            var client = new HttpClient();
+            client.DefaultRequestHeaders.Add("User-Agent", "Repository Downloader");
+
+            var frameworkVersion = await GetLatestVersionInfo(false);
+            var frameworkContent = await client.GetStringAsync(FrameworkLocation + frameworkVersion + "/" + FrameworkFileName);
+
+            return new CatchFramework(frameworkVersion, frameworkContent);
         }
     }
 }
