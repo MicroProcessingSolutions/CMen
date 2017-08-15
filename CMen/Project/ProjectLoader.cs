@@ -27,31 +27,31 @@ namespace CMen.Project
             }
             catch(FileNotFoundException exc)
             {
-                CMenConsole.WriteLine("File was not found! " + exc.Message);
+                CMenConsole.WriteLine("Project file was not found. " + exc.Message);
             }
             catch(ArgumentNullException)
             {
-                CMenConsole.WriteLine("Parameter was null!");
+                CMenConsole.WriteLine("Parameter was null.");
             }
             catch(ArgumentException exc)
             {
-                CMenConsole.WriteLine("Invalid path! " + exc.Message);
+                CMenConsole.WriteLine("Invalid path. " + exc.Message);
             }
             catch(UnauthorizedAccessException exc)
             {
-                CMenConsole.WriteLine("Invalid rights to file! " + exc.Message);
+                CMenConsole.WriteLine("Invalid rights to file. " + exc.Message);
             }
             catch(PathTooLongException)
             {
-                CMenConsole.WriteLine("Path was too long!");
+                CMenConsole.WriteLine("Path was too long.");
             }
             catch(NotSupportedException)
             {
-                CMenConsole.WriteLine("Writing this line is not supported");
+                CMenConsole.WriteLine("Writing this line is not supported.");
             }
             catch(DirectoryNotFoundException)
             {
-                CMenConsole.WriteLine("Directory was not found");
+                CMenConsole.WriteLine("Directory was not found.");
             }
             catch
             {

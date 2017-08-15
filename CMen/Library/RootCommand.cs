@@ -15,6 +15,7 @@ namespace CMen.Library
             command.Command("project", ProjectCommand.Configure);
             command.Command("class", ClassCommand.Configure);
             command.Command("file", FileCommand.Configure);
+            command.Command("check", CheckCommand.Configure);
             command.OnExecute(() =>
             {
                 new RootCommand(_app).Run();
@@ -29,6 +30,9 @@ namespace CMen.Library
 
         public void Run()
         {
+            CheckCommand command = new CheckCommand(_app);
+            command.Run();
+
             _app.ShowHelp();
         }
     }
