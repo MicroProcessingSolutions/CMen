@@ -2,24 +2,25 @@ using Microsoft.Extensions.CommandLineUtils;
 
 namespace CMen.Library
 {
-    class ProjectCommand : ICommand
+    class InitProjectCommand : ICommand
     {
         private CommandLineApplication _app;
 
         public static void Configure(CommandLineApplication application)
         {
-            application.Description = "Project options for CMen";
+            application.Description = "Project init";
 
-            application.Command("init", InitProjectCommand.Configure);
+            application.Argument("[name]", "Name of project");
+            application.Argument("[author]", "Author of project");
             
             application.HelpOption("-?|-h|--help");
             application.OnExecute(() => {
-                new ProjectCommand(application).Run();
+                new InitProjectCommand(application).Run();
                 return 0;
             });
         }
 
-        public ProjectCommand(CommandLineApplication app) {
+        public InitProjectCommand(CommandLineApplication app) {
             _app = app;
         }
 
