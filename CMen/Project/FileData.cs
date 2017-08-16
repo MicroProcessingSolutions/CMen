@@ -6,6 +6,7 @@ namespace CMen.Project
     {
         Source,
         Header,
+        Test,
         Binary,
         Resource,
         Document,

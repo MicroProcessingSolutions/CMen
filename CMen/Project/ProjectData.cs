@@ -10,5 +10,6 @@ namespace CMen.Project
         public string Author { get; set; }
         public HashSet<DirectoryData> Directories { get; set;}
         public HashSet<FileData> Files { get; set; }
+        public HashSet<ClassData> Classes {get; set;}
     }
 }
