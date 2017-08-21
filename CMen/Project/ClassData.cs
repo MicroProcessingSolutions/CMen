@@ -17,7 +17,6 @@ namespace CMen.Project
             SourceFile.DataType = CMenFileType.Source;
             HeaderFile.DataType = CMenFileType.Header;
             TestFile.DataType = CMenFileType.Test;
-
         }
 
         public uint ID { get; set; }

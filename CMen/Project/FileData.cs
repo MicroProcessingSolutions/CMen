@@ -23,6 +23,12 @@ namespace CMen.Project
         public DirectoryData RootDirectory { get; set; }
         public bool ShouldBeProcessed { get; set; }
 
+        public FileData(string extension, DirectoryData root)
+        {
+            Extension = extension;
+            RootDirectory = root;
+        }
+
         public override bool Equals (object obj)
         {            
             if (obj == null || GetType() != obj.GetType())
