@@ -2,19 +2,7 @@ using System;
 
 namespace CMen.Project
 {
-    public enum CMenFileType
-    {
-        Source,
-        Header,
-        Test,
-        Binary,
-        Resource,
-        Document,
-        Text,
-        Other
-    }
-
-    public class FileData : IData
+    public class FileData : IFileData
     {
         public uint ID { get; set; }
         public string Name { get; set; }

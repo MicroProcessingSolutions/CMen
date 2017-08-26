@@ -6,9 +6,9 @@ namespace CMen.Project
     {
         private UInt32 _resourceCounter = 0;
 
-        public IData CreateFile(CMenFileType type, string name)
+        public IFileData CreateFile(CMenFileType type, string name)
         {
-            IData file;
+            IFileData file;
             
             switch (type)
             {
@@ -43,6 +43,7 @@ namespace CMen.Project
             
             if(file != null) file.Type = type;
 
+            _resourceCounter++;
             return file;
         }
     }
