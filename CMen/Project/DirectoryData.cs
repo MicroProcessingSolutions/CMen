@@ -7,6 +7,7 @@ namespace CMen.Project
         public DirectoryData RootDirectory {get; set;}
         public uint ID { get; set; }
         public string Name { get; set; }
+        public CMenFileType Type { get; set; }
 
         public override bool Equals (object obj)
         {            

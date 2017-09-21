@@ -22,6 +22,7 @@ namespace CMen.Project
         public CMenFileType DataType { get; set; }
         public DirectoryData RootDirectory { get; set; }
         public bool ShouldBeProcessed { get; set; }
+        public CMenFileType Type { get; set; }
 
         public FileData(string extension, DirectoryData root)
         {

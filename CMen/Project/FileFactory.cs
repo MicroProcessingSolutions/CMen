@@ -2,24 +2,29 @@ using System;
 
 namespace CMen.Project
 {
-    public class FileFactory
+    public class FileFactory : IFileFactory
     {
-        private UInt32 _resourceCounter = 0;
+        public UInt32 ResourceCounter { get; private set; }
 
-        public IData CreateFile(CMenFileType type, string name)
+        public FileFactory()
         {
-            IData file;
+            ResourceCounter = 0;
+        }
+
+        public IData CreateFile(CMenFileType type, string name, DirectoryData root)
+        {
+            FileData file;
             
             switch (type)
             {
                 case CMenFileType.Source:
-                file = new FileData();
+                file = new FileData(".cpp", root);
                 break;
                 case CMenFileType.Header:
-                throw new NotImplementedException();
+                file = new FileData(".h", root);
                 break;
                 case CMenFileType.Test:
-                throw new NotImplementedException();
+                file = new FileData(".test.cpp", root);
                 break;
                 case CMenFileType.Binary:
                 throw new NotImplementedException();
@@ -41,7 +46,11 @@ namespace CMen.Project
                 break;
             }
             
-            if(file != null) file.Type = type;
+            if(file != null)
+            {
+                file.Type = type;
+                file.Name = name;
+            }
 
             return file;
         }
