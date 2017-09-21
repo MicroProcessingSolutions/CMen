@@ -9,6 +9,8 @@ namespace CMen.Project
         public string Name { get; set; }
         public CMenFileType Type { get; set; }
 
+        public CMenFileType DataType {get; private set;}
+
         public override bool Equals (object obj)
         {            
             if (obj == null || GetType() != obj.GetType())

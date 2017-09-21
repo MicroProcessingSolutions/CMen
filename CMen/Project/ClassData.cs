@@ -11,8 +11,10 @@ namespace CMen.Project
         public string Name { get; set; }
         public CMenFileType Type { get; set; }
 
-        public FileData SourceFile;
-        public FileData HeaderFile;
-        public FileData TestFile;
+        public CMenFileType DataType {get; private set;}
+
+        public FileData SourceFile {get; private set;}
+        public FileData HeaderFile {get; private set;}
+        public FileData TestFile {get; private set;}
     }
 }

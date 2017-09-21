@@ -52,6 +52,7 @@ namespace CMen.Project
                 file.Name = name;
             }
 
+            ResourceCounter++;
             return file;
         }
     }
