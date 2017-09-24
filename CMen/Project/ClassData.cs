@@ -1,10 +1,9 @@
 namespace CMen.Project
 {
-    public class ClassData : IData
+    public class ClassData
     {
         public ClassData(string name)
         {
-            //FileFactory factory = new FileFactory()
         }
 
         public uint ID { get; set; }

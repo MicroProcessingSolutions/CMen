@@ -10,6 +10,7 @@ namespace CMen.Project
         public CMenFileType Type { get; set; }
 
         public CMenFileType DataType {get; private set;}
+        public CMenAbstractResourceType ResourceType { get; set; }
 
         public override bool Equals (object obj)
         {            

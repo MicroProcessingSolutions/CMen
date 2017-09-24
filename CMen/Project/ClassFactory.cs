@@ -11,5 +11,28 @@ namespace CMen.Project
         {
             _factory = factory;
         }
+
+        public bool CreateClass(string className, DirectoryData rootDirectory, bool enableTest = true)
+        {
+            try
+            {
+                _factory.CreateFile(CMenFileType.Source, className, rootDirectory);
+                _factory.CreateFile(CMenFileType.Header, className, rootDirectory);
+                if(enableTest)
+                {
+                    _factory.CreateFile(CMenFileType.Test, className, rootDirectory);
+                }
+            }
+            catch (NotImplementedException exception)
+            {
+                return false;
+            }
+            catch
+            {
+                return false;
+            }
+            
+            return true;
+        }
     }
 }

@@ -14,8 +14,17 @@ namespace CMen.Project
         Other
     }
 
+    public enum CMenAbstractResourceType
+    {
+        File,
+        Class,
+        Setting
+    }
+
     public interface IFileData : IData
     {
+        //Used for checking if file should be compiled once again
+        string LastHashCode { get; }
         string Extension { get; }
         DirectoryData RootDirectory { get; }
         bool ShouldBeProcessed { get; }

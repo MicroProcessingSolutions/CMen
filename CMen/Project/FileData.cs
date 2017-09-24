@@ -12,6 +12,10 @@ namespace CMen.Project
         public bool ShouldBeProcessed { get; set; }
         public CMenFileType Type { get; set; }
 
+        public string LastHashCode { get; private set; }
+
+        public CMenAbstractResourceType ResourceType { get; set; }
+
         public FileData(string extension, DirectoryData root)
         {
             Extension = extension;

@@ -1,8 +1,7 @@
 namespace CMen.Project
 {
-    public interface IData
+    public interface IData : IAbstractResource
     {
-        uint ID { get; set; }
-        string Name { get; set; }
+        CMenFileType Type { get; }
     }
 }
