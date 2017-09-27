@@ -18,7 +18,8 @@ namespace CMen.Project
     {
         File,
         Class,
-        Setting
+        Setting,
+        Directory,
     }
 
     public interface IFileData : IData

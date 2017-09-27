@@ -11,7 +11,7 @@ namespace CMen.Project
             ResourceCounter = 0;
         }
 
-        public IData CreateFile(CMenFileType type, string name, DirectoryData root)
+        public IFileData CreateFile(CMenFileType type, string name, DirectoryData root)
         {
             FileData file;
             
@@ -28,22 +28,22 @@ namespace CMen.Project
                 break;
                 case CMenFileType.Binary:
                 throw new NotImplementedException();
-                break;
+                //break;
                 case CMenFileType.Resource:
                 throw new NotImplementedException();
-                break;
+                //break;
                 case CMenFileType.Document:
                 throw new NotImplementedException();
-                break;
+                //break;
                 case CMenFileType.Text:
                 throw new NotImplementedException();
-                break;
+                //break;
                 case CMenFileType.Other:
                 throw new NotImplementedException();
-                break;
+                //break;
                 default:
                 throw new NullReferenceException();
-                break;
+                //break;
             }
             
             if(file != null)

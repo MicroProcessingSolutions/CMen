@@ -8,14 +8,13 @@ namespace CMen.Tests
         [Fact]
         public void TestAreFilesEqualCommandLineApplication()
         {
-            CMen.Project.FileData file1 = new CMen.Project.FileData();
-            CMen.Project.FileData file2 = new CMen.Project.FileData();
+            CMen.Project.FileData file1 = new CMen.Project.FileData("ext", new CMen.Project.DirectoryData());
+            CMen.Project.FileData file2 = new CMen.Project.FileData("ext", new CMen.Project.DirectoryData());
 
             file2.ID = file1.ID = 1;
             file2.Name = file1.Name = "Name";
             file2.Extension = file1.Extension = "ext";
             file2.DataType = file1.DataType = CMen.Project.CMenFileType.Document;
-            file2.RootDirectory = file1.RootDirectory = new CMen.Project.DirectoryData();
             file2.ShouldBeProcessed = file1.ShouldBeProcessed = true;
 
             //Check equality

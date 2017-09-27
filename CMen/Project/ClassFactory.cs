@@ -12,27 +12,29 @@ namespace CMen.Project
             _factory = factory;
         }
 
-        public bool CreateClass(string className, DirectoryData rootDirectory, bool enableTest = true)
+        public IAbstractResource CreateElement(string className, DirectoryData rootDirectory, bool enableTest = true)
         {
+            ClassData actualClass = new ClassData(className);
+
             try
             {
-                _factory.CreateFile(CMenFileType.Source, className, rootDirectory);
-                _factory.CreateFile(CMenFileType.Header, className, rootDirectory);
+                actualClass.SetSource(_factory.CreateFile(CMenFileType.Source, className, rootDirectory));
+                actualClass.SetHeader(_factory.CreateFile(CMenFileType.Header, className, rootDirectory));
                 if(enableTest)
                 {
-                    _factory.CreateFile(CMenFileType.Test, className, rootDirectory);
+                    actualClass.SetTest(_factory.CreateFile(CMenFileType.Test, className, rootDirectory));
                 }
             }
             catch (NotImplementedException exception)
             {
-                return false;
+                return null;
             }
             catch
             {
-                return false;
+                return null;
             }
             
-            return true;
+            return actualClass;
         }
     }
 }
