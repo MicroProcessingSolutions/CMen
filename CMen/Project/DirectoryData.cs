@@ -2,7 +2,7 @@ using System;
 
 namespace CMen.Project
 {
-    public class DirectoryData : IData
+    public class DirectoryData : IAbstractResource
     {
         public DirectoryData RootDirectory {get; set;}
         public uint ID { get; set; }

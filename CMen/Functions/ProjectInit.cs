@@ -10,8 +10,6 @@ namespace CMen.Functions
         public ProjectInit()
         {
             _project = new ProjectData();
-            _project.Directories = new HashSet<DirectoryData>();
-            _project.Files = new HashSet<FileData>();
             _project.CreationTime = DateTime.UtcNow;
         }
 

@@ -29,8 +29,8 @@ namespace CMen.Tests
                 CMenConsole.WriteLine("Folder created: " + directories[counter].Name);
             }
 
-            _data.Directories = directories.ToHashSet();
-            _data.Files = new HashSet<FileData>();
+            _data.SetDirectories(directories.ToHashSet());
+            _data.SetFiles(new HashSet<FileData>());
         }
 
         [Fact]
