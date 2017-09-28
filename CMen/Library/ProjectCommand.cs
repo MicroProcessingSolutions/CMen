@@ -11,6 +11,7 @@ namespace CMen.Library
             application.Description = "Project options for CMen";
 
             application.Command("init", InitProjectCommand.Configure);
+            //application.Command("show", )
             
             application.HelpOption("-?|-h|--help");
             application.OnExecute(() => {

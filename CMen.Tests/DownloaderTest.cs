@@ -26,10 +26,16 @@ namespace CMen.Tests
             Version version1;
             Version version2;
 
+            string versionTag = await CatchFrameworkDownlader.GetLatestVersionInfo();
+
             //First available version when CMen is developed
             Version.TryParse("1.9.6", out version1);
 
-            Version.TryParse(await CatchFrameworkDownlader.GetLatestVersionInfo(true), out version2);
+            Version.TryParse(versionTag, out version2);
+
+            Console.WriteLine(versionTag);
+
+            Console.WriteLine(version2.ToString(), "vs", version1.ToString());
 
             Assert.True(version2 >= version1);
         }

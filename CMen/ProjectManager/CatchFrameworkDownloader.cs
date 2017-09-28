@@ -1,6 +1,7 @@
 using System;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
 
@@ -11,7 +12,7 @@ namespace CMen.ProjectManager
         const string FrameworkInfo = "https://api.github.com/repos/philsquared/Catch/releases/latest";
         const string FrameworkLocation = "https://github.com/philsquared/Catch/releases/download/";
         const string FrameworkFileName = "catch.hpp";
-        public static async Task<string> GetLatestVersionInfo(bool onlyNumbers)
+        public static async Task<string> GetLatestVersionInfo()
         {
             var client = new HttpClient();
 
@@ -26,8 +27,8 @@ namespace CMen.ProjectManager
             
             //Version is contained in `tag_name~
             var version = data["tag_name"].ToString();
-
-            return onlyNumbers ? version.Replace("v", "") : version;
+            
+            return version;
         }
 
         public static async Task<CatchFramework> GetLatestFramework()
@@ -36,8 +37,8 @@ namespace CMen.ProjectManager
             var client = new HttpClient();
             client.DefaultRequestHeaders.Add("User-Agent", "Repository Downloader");
 
-            var frameworkVersion = await GetLatestVersionInfo(false);
-            var frameworkContent = await client.GetStringAsync(FrameworkLocation + frameworkVersion + "/" + FrameworkFileName);
+            var frameworkVersion = await GetLatestVersionInfo();
+            var frameworkContent = ("v" + (await client.GetStringAsync(FrameworkLocation + frameworkVersion + "/" + FrameworkFileName)));
 
             return new CatchFramework(frameworkVersion, frameworkContent);
         }
