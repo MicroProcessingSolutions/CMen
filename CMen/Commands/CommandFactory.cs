@@ -1,4 +1,4 @@
-namespace CMen.Library
+namespace CMen.Commands
 {
     public class CommandFactory
     {

@@ -1,24 +1,23 @@
 using Microsoft.Extensions.CommandLineUtils;
 
-namespace CMen.Library
+namespace CMen.Commands
 {
-    class VerifyCommand : ICommand
+    class ClassCommand : ICommand
     {
         private CommandLineApplication _app;
 
         public static void Configure(CommandLineApplication application)
         {
+            application.Description = "Class options for CMen";
             application.HelpOption("-?|-h|--help");
-            application.Description = "Verify a resource";
-            application.Argument("[name]", "Name of resource");
-
+            BasicSubCommandsGenerator.Configure(application);
             application.OnExecute(() => {
-                new VerifyCommand(application).Run();
+                new ClassCommand(application).Run();
                 return 0;
             });
         }
 
-        public VerifyCommand(CommandLineApplication app) {
+        public ClassCommand(CommandLineApplication app) {
             _app = app;
         }
 

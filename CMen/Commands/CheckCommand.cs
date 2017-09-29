@@ -2,7 +2,7 @@ using CMen.Project;
 using CMen.Utils;
 using Microsoft.Extensions.CommandLineUtils;
 
-namespace CMen.Library
+namespace CMen.Commands
 {
     class CheckCommand : ICommand
     {

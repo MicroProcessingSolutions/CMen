@@ -1,23 +1,25 @@
 using Microsoft.Extensions.CommandLineUtils;
 
-namespace CMen.Library
+namespace CMen.Commands
 {
-    class ClassCommand : ICommand
+    class FileCommand : ICommand
     {
         private CommandLineApplication _app;
 
         public static void Configure(CommandLineApplication application)
         {
-            application.Description = "Class options for CMen";
+            application.Description = "File options for CMen";
             application.HelpOption("-?|-h|--help");
+            
             BasicSubCommandsGenerator.Configure(application);
+            
             application.OnExecute(() => {
-                new ClassCommand(application).Run();
+                new FileCommand(application).Run();
                 return 0;
             });
         }
 
-        public ClassCommand(CommandLineApplication app) {
+        public FileCommand(CommandLineApplication app) {
             _app = app;
         }
 

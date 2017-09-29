@@ -25,7 +25,7 @@ namespace CMen.ProjectManager
             
             JObject data = JObject.Parse(header);
             
-            //Version is contained in `tag_name~
+            //Version is contained in `tag_name`
             var version = data["tag_name"].ToString();
             
             return version;

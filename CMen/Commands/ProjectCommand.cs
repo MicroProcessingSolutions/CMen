@@ -1,6 +1,6 @@
 using Microsoft.Extensions.CommandLineUtils;
 
-namespace CMen.Library
+namespace CMen.Commands
 {
     class ProjectCommand : ICommand
     {
@@ -11,7 +11,7 @@ namespace CMen.Library
             application.Description = "Project options for CMen";
 
             application.Command("init", InitProjectCommand.Configure);
-            //application.Command("show", )
+            application.Command("show", VisualiseProjectCommand.Configure);
             
             application.HelpOption("-?|-h|--help");
             application.OnExecute(() => {

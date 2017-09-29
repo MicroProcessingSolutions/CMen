@@ -9,7 +9,7 @@ namespace CMen.Project
 {
     public class ProjectVisualiser
     {
-        public bool VisualiseProject(ProjectData project, string path)
+        public bool VisualiseProject(ProjectData project)
         {
             StringBuilder builder = new StringBuilder();
             JsonSerializer serializer = new JsonSerializer();

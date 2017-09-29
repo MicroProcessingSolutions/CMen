@@ -1,24 +1,24 @@
 using Microsoft.Extensions.CommandLineUtils;
 
-namespace CMen.Library
+namespace CMen.Commands
 {
-    class NewCommand : ICommand
+    class DeleteCommand : ICommand
     {
         private CommandLineApplication _app;
 
         public static void Configure(CommandLineApplication application)
         {
             application.HelpOption("-?|-h|--help");
-            application.Description = "Create a resource";
+            application.Description = "Delete a resource";
             application.Argument("[name]", "Name of resource");
 
             application.OnExecute(() => {
-                new NewCommand(application).Run();
+                new DeleteCommand(application).Run();
                 return 0;
             });
         }
 
-        public NewCommand(CommandLineApplication app) {
+        public DeleteCommand(CommandLineApplication app) {
             _app = app;
         }
 
