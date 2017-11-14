@@ -11,6 +11,11 @@ namespace CMen.Commands.Project
         private string _directoryName;
         private string _extensionName;
 
+        private ProjectData _actualProject;
+
+        private ProjectLoader _loader;
+        private ProjectSaver _saver;
+
         public static void Configure(CommandLineApplication application)
         {
             application.Description = "Adding file to project";
@@ -28,10 +33,10 @@ namespace CMen.Commands.Project
 
         public void Run()
         {
-            ProjectLoader loader = new ProjectLoader();
-            var actualProject = loader.LoadProject("./");
+            _loader = new ProjectLoader();
+            _actualProject = _loader.LoadProject("./");
 
-            if(actualProject == null)
+            if(_actualProject == null)
             {
                 CMenConsole.WriteLine("Project does not exist in actual directory");
             }
@@ -47,10 +52,10 @@ namespace CMen.Commands.Project
             {
                 FileData file = new FileData(_extensionName, null);
 
-                actualProject.AddFile(file);
+                _actualProject.AddFile(file);
 
-                ProjectSaver saver = new ProjectSaver();
-                saver.SaveProject(actualProject, "./");
+                _saver = new ProjectSaver();
+                _saver.SaveProject(_actualProject, "./");
             }
         }
 
