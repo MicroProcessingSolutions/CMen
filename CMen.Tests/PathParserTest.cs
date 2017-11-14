@@ -1,5 +1,5 @@
 using Xunit;
-using CMen.Library;
+using CMen.Commands;
 using CMen.Utils;
 using CMen.Project;
 using System.IO;

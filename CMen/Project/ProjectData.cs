@@ -25,22 +25,22 @@ namespace CMen.Project
             Projects = new HashSet<ProjectData>();
         }
 
-        void AddFile(FileData file)
+        public void AddFile(FileData file)
         {
             Files.Add(file);
         }
 
-        void AddDirectory(DirectoryData directory)
+        public void AddDirectory(DirectoryData directory)
         {
             Directories.Add(directory);
         }
 
-        void AddProject(ProjectData project)
+        public void AddProject(ProjectData project)
         {
             Projects.Add(project);
         }
 
-        void AddClass(ClassData newClass)
+        public void AddClass(ClassData newClass)
         {
             Classes.Add(newClass);
         }

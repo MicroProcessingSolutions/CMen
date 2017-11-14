@@ -1,5 +1,5 @@
 using Xunit;
-using CMen.Library;
+using CMen.Commands;
 
 namespace CMen.Tests
 {

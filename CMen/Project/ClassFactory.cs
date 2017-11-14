@@ -34,6 +34,7 @@ namespace CMen.Project
                 return null;
             }
             
+            _classCounter++;
             return actualClass;
         }
     }
